@@ -675,26 +675,49 @@ import numpy as np
 # print("transpose;",new_arr.T)
 # print(np.split(arr,3))
 
-X = np.array([
-    [2, 4],
-    [3, 5],
-    [5, 7],
-    [6, 8]
-])
+# X = np.array([
+#     [2, 4],
+#     [3, 5],
+tudent = ("Sita", 21, 90, 85, 90, 95)
 
-weights = np.array([4, 3])
-bias = 10
+print(student.count(90))
+print(student.index(85))
+name,age,mark1,mark2,mark3,mark4 =student
+print(name)
+print(age)
 
-actual = np.array([30, 38, 50, 60])
+student_list = list(student)
 
-print(np.shape(X))
-prediction1 = np.dot(X, weights) + bias
-prediction2 = X@ weights +bias
+student_list[1]= 22
+student = tuple(student_list)
+print(student)#     [5, 7],
+#     [6, 8]
+# ])
 
-print(prediction2)
-print(prediction1)
+# weights = np.array([4, 3])
+# bias = 10
 
-diff = actual - prediction1
-MSE = np.mean(diff)
+# actual = np.array([30, 38, 50, 60])
 
-print (MSE)
+# print(np.shape(X))
+# prediction1 = np.dot(X, weights) + bias
+# prediction2 = X@ weights +bias
+
+# print(prediction2)
+# print(prediction1)
+
+# diff = actual - prediction1
+# MAE = np.mean(np.abs(diff))
+
+# print (MAE)
+
+
+#TUPLE
+# marks = (75, 85, 90, 65, 95, 80)
+# print(marks[0])
+# print(marks[-1])
+# print(marks[1:5])
+# print(marks[::-1])
+# print(len(marks))
+
+s
