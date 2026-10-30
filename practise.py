@@ -678,19 +678,7 @@ import numpy as np
 # X = np.array([
 #     [2, 4],
 #     [3, 5],
-tudent = ("Sita", 21, 90, 85, 90, 95)
-
-print(student.count(90))
-print(student.index(85))
-name,age,mark1,mark2,mark3,mark4 =student
-print(name)
-print(age)
-
-student_list = list(student)
-
-student_list[1]= 22
-student = tuple(student_list)
-print(student)#     [5, 7],
+#     [5, 7],
 #     [6, 8]
 # ])
 
@@ -720,4 +708,40 @@ print(student)#     [5, 7],
 # print(marks[::-1])
 # print(len(marks))
 
-s
+# student = ("Sita", 21, 90, 85, 90, 95)
+
+# print(student.count(90))
+# print(student.index(85))
+# name,age,mark1,mark2,mark3,mark4 =student
+# print(name)
+# print(age)
+
+# student_list = list(student)
+
+# student_list[1]= 22
+# student = tuple(student_list)
+# print(student)
+
+#PYTHON SETS
+
+# students = ["Ram", "Sita", "Hari", "Ram", "Gita", "Sita", "Shyam"]
+
+# student_set = set(students)
+# print(student_set)
+
+# print(len(student_set))
+
+# student_set.add("Rita")
+# student_set.discard("Hari")
+# check = "Ram" in student_set
+# print(check)
+# print(student_set)
+
+group_A = {"Python", "Java", "SQL", "C++"}
+group_B = {"Python", "JavaScript", "SQL", "HTML"}
+print(group_A | group_B)
+print(group_A & group_B)
+print(group_A  - group_B)
+print(group_B - group_A)
+print(group_A  ^ group_B)
+print("Python" in group_A)
