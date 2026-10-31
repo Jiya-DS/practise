@@ -60,15 +60,48 @@ import numpy as np
 # df["result"] = np.where(df["marks"]>=80 ,"Pass", "Fail")
 # print(df)
 
-df = pd.DataFrame(
-    {
-        "name": ["Ram", "Sita", "Hari", "Gita"],
-        "marks": [85, 92, 78, 95]
-    },
-    index=[10, 20, 30, 40]
-)
-print(df.iloc[1])
-print(df.iloc[3,1])
+# df = pd.DataFrame(
+#     {
+#         "name": ["Ram", "Sita", "Hari", "Gita"],
+#         "marks": [85, 92, 78, 95]
+#     },
+#     index=[10, 20, 30, 40]
+# )
+# print(df.iloc[1])
+# print(df.iloc[3,1])
 
-print(df.loc[30])
-print(df.loc[10,"marks"])
+# print(df.loc[30])
+# print(df.loc[10,"marks"])
+
+
+
+# data = {
+#     "Name": ["Ram", "Sita", "Hari", "Gita", "Rita"],
+#     "Age": [20, np.nan, 22, 21, np.nan],
+#     "Marks": [85, 90, np.nan, 75, 95]
+# }
+
+# df = pd.DataFrame(data)
+# # print(df)
+# print(df.isnull())
+# print(df.isnull().sum())
+# df["Age"] = df["Age"].fillna(df["Age"].mean())
+# df["Marks"]= df["Marks"].fillna(0)
+# print(df)
+
+data = {
+    "Name": ["Ram", "Sita", "Hari", "Ram", "Gita", "Sita"],
+    "Age": [20, 21, np.nan, 20, 22, 21],
+    "Marks": [85, 90, 75, 85, np.nan, 90]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+print(df.isnull().sum())
+print(df.duplicated().sum())
+df = df.drop_duplicates()
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["Marks"] = df["Marks"].fillna(df["Marks"].mean())
+df= df.reset_index(drop=True)
+print(df)

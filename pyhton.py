@@ -39,14 +39,64 @@
 # print(student)
 # print("marks" in student)
 
-emp = {
-    "name":"Sita",
-    "age" : 24,
-    "salary" : 35000,
-    "department" : "IT"
+# emp = {
+#     "name":"Sita",
+#     "age" : 24,
+#     "salary" : 35000,
+#     "department" : "IT"
+# }
+# print(emp["name"])
+# print(emp.get("salary"))
+# emp["salary"]= 45000
+# emp["city"]="Pokhara"
+# print(emp)
+
+# students = {
+#     "Ram": 85,
+#     "Sita": 92,
+#     "Hari": 76,
+#     "Gita": 88,
+#     "Rita": 95
+# }
+# for key,value in students.items():
+#     print(key,":",value)
+    
+# for key,value in students.items():
+#     if value >85:
+#         print(key,":",value)
+    
+# highest_marks=0
+# top_student = ""
+# for name, marks in students.items():
+#     if value>highest_marks:
+#         highest_marks = marks
+#         top_student = name
+# print(top_student)
+# print(highest_marks)
+employees = {
+    "Ram": {"salary": 30000, "department": "IT"},
+    "Sita": {"salary": 45000, "department": "HR"},
+    "Hari": {"salary": 50000, "department": "IT"},
+    "Gita": {"salary": 40000, "department": "Finance"}
 }
-print(emp["name"])
-print(emp.get("salary"))
-emp["salary"]= 45000
-emp["city"]="Pokhara"
-print(emp)
+for name, details in employees.items():
+    print(name,details["salary"])
+    
+for name, details in employees.items():
+    department = details["department"]
+    if department == "IT":
+        print(name,department)
+        
+employees["Sita"]["salary"] = 55000
+print(employees)
+
+
+highest_salary = 0
+top_emp =""
+for name, details in employees.items():
+    salary=details["salary"]
+    if salary>highest_salary:
+        highest_salary = salary
+        top_emp = name
+print(highest_salary)
+print(top_emp)               
