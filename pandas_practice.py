@@ -89,19 +89,35 @@ import numpy as np
 # df["Marks"]= df["Marks"].fillna(0)
 # print(df)
 
+# data = {
+#     "Name": ["Ram", "Sita", "Hari", "Ram", "Gita", "Sita"],
+#     "Age": [20, 21, np.nan, 20, 22, 21],
+#     "Marks": [85, 90, 75, 85, np.nan, 90]
+# }
+
+# df = pd.DataFrame(data)
+
+# print(df)
+# print(df.isnull().sum())
+# print(df.duplicated().sum())
+# df = df.drop_duplicates()
+# df["Age"] = df["Age"].fillna(df["Age"].mean())
+# df["Marks"] = df["Marks"].fillna(df["Marks"].mean())
+# df= df.reset_index(drop=True)
+# print(df)
+
 data = {
-    "Name": ["Ram", "Sita", "Hari", "Ram", "Gita", "Sita"],
-    "Age": [20, 21, np.nan, 20, 22, 21],
-    "Marks": [85, 90, 75, 85, np.nan, 90]
+    "Name": ["Ram", "Sita", "Hari", "Gita", "Rita"],
+    "Marks": [85, 95, 70, 90, 80],
+    "Age": [20, 22, 21, 19, 23]
 }
 
 df = pd.DataFrame(data)
-
-print(df)
-print(df.isnull().sum())
-print(df.duplicated().sum())
-df = df.drop_duplicates()
-df["Age"] = df["Age"].fillna(df["Age"].mean())
-df["Marks"] = df["Marks"].fillna(df["Marks"].mean())
-df= df.reset_index(drop=True)
+print(df.sort_values(by="Marks"))
+sorted_marks = df.sort_values(by="Marks", ascending = False)
+print(df.sort_values(by="Age"))
+print(df.sort_values(
+    by=["Marks","Age"],ascending = [False,True]))
+df = df.sort_values(by="Marks", ascending=False)
+df = df.reset_index(drop= True)
 print(df)
