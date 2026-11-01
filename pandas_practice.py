@@ -244,13 +244,42 @@ import numpy as np
 # print(sorted_data)
 # print(students)
 
+# data = {
+#     "Name": ["Asha", "Ram", "Sita", "Hari", "Gita", "Aman"],
+#     "Marks": [92, 45, 78, 35, 85, 60]
+# }
+
+# df = pd.DataFrame(data)
+# df["Bonus_Marks"]=df["Marks"].apply(lambda x : x+5)
+# df["Result"]= df["Marks"].apply(lambda x : "Pass" if x >=50 else "Fail")
+# df["Grade"]= df["Marks"].apply(lambda x : "A" if x >=90  else "B" if x >=75 else "C" if x>=50 else "D")
+# print(df)
+
 data = {
-    "Name": ["Asha", "Ram", "Sita", "Hari", "Gita", "Aman"],
-    "Marks": [92, 45, 78, 35, 85, 60]
+    "Name": ["Ram", "Sita", "Hari", "Gita", "Aman", "Rita"],
+    "Department": ["IT", "HR", "IT", "Finance", "HR", "IT"],
+    "Salary": [30000, 45000, 55000, 40000, 60000, 35000],
+    "Experience": [1, 4, 6, 3, 7, 2]
 }
 
 df = pd.DataFrame(data)
-df["Bonus_Marks"]=df["Marks"].apply(lambda x : x+5)
-df["Result"]= df["Marks"].apply(lambda x : "Pass" if x >=50 else "Fail")
-df["Grade"]= df["Marks"].apply(lambda x : "A" if x >=90  else "B" if x >=75 else "C" if x>=50 else "D")
+
+df["Bonus"]=df["Salary"].apply(lambda x : 0.1*x)
+df["New_Salary"]= df["Salary"]+df["Bonus"]
+df["Experience_Level"]=df["Experience"].apply(lambda x : "Senior" if x >= 5 else "intermediate" if x>=2 else "Fresher")
 print(df)
+print("_________________________")
+# df["Salary"]= df["Department"].apply(lambda x : df["Salary"]*1.05 if x == "IT" else df["Salary"])
+df["Salary"] = df.apply(
+    lambda row: row["Salary"] * 1.15 if row["Department"] == "IT"
+    else row["Salary"] * 1.10 if row["Department"] == "HR"
+    else row["Salary"],
+    axis=1
+)
+
+df["Bonus"]=df["Salary"].apply(lambda x : 0.1*x)
+df["New_Salary"]= df["Salary"]+df["Bonus"]
+sorted_data = df.sort_values(by = "New_Salary", ascending=False)
+print(sorted_data)
+exceeed_50000= df[df["New_Salary"]>50000]
+print(exceeed_50000)
